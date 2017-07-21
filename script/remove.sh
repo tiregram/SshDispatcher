@@ -4,7 +4,7 @@ source ${POS_SCRIPT_PRIV}/utils.sh
 
 if [[ "$1" == "--help-brief" ]]
 then
-    echo "Add a host to the current SshDispatcher"
+    echo "remove a host to the current SshDispatcher"
     exit
 fi
 
@@ -18,11 +18,12 @@ fi
 one_host=$1
 move_to_sshdistroot
 
-if [ -f con/${one_host} ]
+if [ ! -f con/${one_host} ]
 then
-    echo "host exist"
-    continue
+    echo "Host doesn't exist"
+    exit 1
 fi
 
-nohup ${POS_SCRIPT_PRIV}/connection.sh ${one_host}  >>  log 2>&1 &
+#all in out err and process will be kill by the good process
+rm con/$one_host
 
