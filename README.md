@@ -4,7 +4,7 @@
 
 ```bash
 sshdisp init dispatcher
-cd connections
+cd dispatcher
 ```
 
 ## status
@@ -16,34 +16,46 @@ sshdisp status
 ## log
 
 ```bash
-// dans un dosier ou sous dosier de  _connection_
+// dans un dosier ou sous dosier 
 sshdisp log
 ```
 ou
 ```bash
-tail -F _sshdisp.log_
+tail -F log
 ```
 ## add a machine
 ```bash
-sshdisp connection add _hostname_ ...
+sshdisp connection add _hostname_
 ```
 ## send command to all
 ```bash
 sshdisp command
 ```
-or
-```bash
-cat > command_all
-```
 ## close hostname
 ```bash
-sshdist close hostname
+sshdist remove hostname
 ```
 or
 ```bash
 rm con/hostname
 ```
-# close dispatcher
+## close dispatcher
 ```bash
 sshdist destroy
 ```
+
+# add a new functionality
+- add a file in Ss/script/
+- chown  +x  on it
+- respond to --help  and --help-brief
+- do what you want
+
+
+# TODO
+get - to read a exported value in all connection
+set - to export a diferent value in all connection
+send - to send message to the process run by the bash over ssh
+restore - after a shutdown to recreate connection to host
+
+
+
